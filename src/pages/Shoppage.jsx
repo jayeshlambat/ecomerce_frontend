@@ -42,28 +42,34 @@ function Shoppage() {
 
                 {/* products */}
                 <div className="livingroomproduct">
-                    {resproductData.map((product, index) => (
-                        <div key={index} className="products">
-                            <img src={product.productImages[0]} alt='img' />
-                            <p className='rating'><Rating
-                                sx={{ color: "black" }}
-                                name="half-rating"
-                                readOnly
-                                value={5}
-                                precision={0.5} /></p>
-                            <p className='title'>{product.title}</p>
-                            <div className='price'>
-                                <p>${product.price}</p>
-                                {product.priceBeforeDiscount
-                                    && <p className='priceBeforeDiscount'>${product.priceBeforeDiscount}</p>}
+                    {resproductData && resproductData.length > 0 ?
 
+                        (resproductData.map((product, index) => (
+                            <div key={index} className="products">
+                                <img src={product.productImages[0]} alt='img' />
+                                <p className='rating'><Rating
+                                    sx={{ color: "black" }}
+                                    name="half-rating"
+                                    readOnly
+                                    value={5}
+                                    precision={0.5} /></p>
+                                <p className='title'>{product.title}</p>
+                                <div className='price'>
+                                    <p>${product.price}</p>
+                                    {product.priceBeforeDiscount
+                                        && <p className='priceBeforeDiscount'>${product.priceBeforeDiscount}</p>}
+
+
+                                </div>
+                                <new>New</new>
+                                {product.discount && <fifty>-{product.discount}%</fifty>}
 
                             </div>
-                            <new>New</new>
-                            {product.discount && <fifty>-{product.discount}%</fifty>}
-
-                        </div>
-                    ))}
+                        ))
+                        )
+                        :
+                        (<p>loading...</p>)
+                    }
                 </div>
 
             </div>
