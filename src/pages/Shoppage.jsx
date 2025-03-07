@@ -68,7 +68,7 @@ function Shoppage() {
                         ))
                         )
                         :
-                        (<p>loading...</p>)
+                        (<p>no product to sale</p>)
                     }
                 </div>
 
